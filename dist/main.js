@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction test() {\n    console.log('hi');\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (test);\n\n//# sourceURL=webpack://knights-travails/./src/board.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction createBoard() {\n    const row = [];\n    const board = [];\n\n    for (let i = 0; i < 8; i++) {\n        row[i] = 0;\n    }\n\n    for (let i = 0; i < 8; i++) {\n        board[i] = row;\n    }\n\n    console.table(board);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createBoard);\n\n//# sourceURL=webpack://knights-travails/./src/board.js?");
 
 /***/ }),
 

@@ -1,3 +1,3 @@
-import test from "./board";
+import createBoard from "./board";
 
-test();
+createBoard();

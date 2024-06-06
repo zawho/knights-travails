@@ -1,5 +1,16 @@
-function test() {
-    console.log('hi');
+function createBoard() {
+    const row = [];
+    const board = [];
+
+    for (let i = 0; i < 8; i++) {
+        row[i] = 0;
+    }
+
+    for (let i = 0; i < 8; i++) {
+        board[i] = row;
+    }
+
+    console.table(board);
 }
 
-export default test;
+export default createBoard;
