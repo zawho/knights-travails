@@ -1,16 +1,17 @@
-function createBoard() {
+class Board {
+  constructor() {
     const row = [];
     const board = [];
 
     for (let i = 0; i < 8; i++) {
-        row[i] = 0;
+      row[i] = 0;
     }
 
     for (let i = 0; i < 8; i++) {
-        board[i] = row;
+      board[i] = row;
     }
-
-    console.table(board);
+    return board;
+  }
 }
 
-export default createBoard;
+export default Board;

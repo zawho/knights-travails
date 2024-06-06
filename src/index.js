@@ -1,3 +1,5 @@
-import createBoard from "./board";
+import Board from "./board";
 
-createBoard();
+const testBoard = new Board();
+
+console.table(testBoard);
