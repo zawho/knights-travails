@@ -5,16 +5,18 @@ class Board {
   }
 
   createBoard() {
-    const row = [];
     const board = [];
 
     for (let i = 0; i < 8; i++) {
-      row[i] = 0;
+      board[i] = [];
     }
 
-    for (let i = 0; i < 8; i++) {
-      board[i] = row;
-    }
+    board.forEach((arr) => {
+        for (let i = 0; i < 8; i++) {
+            arr[i] = 0;
+          }
+    })
+
     return board;
   }
 
