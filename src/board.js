@@ -1,5 +1,10 @@
 class Board {
+
   constructor() {
+    this.board = this.createBoard();
+  }
+
+  createBoard() {
     const row = [];
     const board = [];
 
@@ -12,6 +17,7 @@ class Board {
     }
     return board;
   }
+
 }
 
 export default Board;
