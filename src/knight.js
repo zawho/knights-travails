@@ -1,6 +1,6 @@
 class Knight {
-    constructor(board, x, y) {
-        board[x][y] = 1;
+    constructor(board, [x, y]) {
+        board[x][y] = 'x';
     }
 }
 

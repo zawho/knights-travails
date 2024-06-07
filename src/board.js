@@ -1,3 +1,5 @@
+import Knight from "./knight";
+
 class Board {
 
   constructor() {
@@ -18,6 +20,11 @@ class Board {
     })
 
     return board;
+  }
+
+  placeKnight([a, b]) {
+    const newKnight = new Knight(this.board, [a, b]);
+    return newKnight;
   }
 
 }
