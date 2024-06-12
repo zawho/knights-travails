@@ -37,8 +37,68 @@ class Board {
     });
     return knight;
   }
-}
 
-// Next: create func to showing all possible moves for a knight in a specific position.
+  allMoves(knight) {
+    this.board.forEach((item) => {
+      if (this.board.indexOf(item) === (knight[0] - 1)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] - 2)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] - 2)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] - 1)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] + 1)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 2)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] + 2)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 1)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] - 1)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 2)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] - 2)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 1)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] + 1)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] - 2)) {
+            item[i] = 'o';
+          }
+        }
+      }
+      if (this.board.indexOf(item) === (knight[0] + 2)) {
+        for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] - 1)) {
+            item[i] = 'o';
+          }
+        }
+      }
+    });
+  }
+
+}
 
 export default Board;
