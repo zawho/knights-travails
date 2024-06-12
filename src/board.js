@@ -1,7 +1,6 @@
 import Knight from "./knight";
 
 class Board {
-
   constructor() {
     this.board = this.createBoard();
   }
@@ -14,10 +13,10 @@ class Board {
     }
 
     board.forEach((arr) => {
-        for (let i = 0; i < 8; i++) {
-            arr[i] = 0;
-          }
-    })
+      for (let i = 0; i < 8; i++) {
+        arr[i] = 0;
+      }
+    });
 
     return board;
   }
@@ -27,6 +26,20 @@ class Board {
     return newKnight;
   }
 
+  findKnight(arr) {
+    let knight;
+    arr.forEach((item) => {
+        for(let i = 0; i < item.length; i ++) {
+            if(item[i] === 'x') {
+                knight = [arr.indexOf(item), i];
+            }
+        }
+    })
+    return knight;
+  }
+
 }
+
+// Next: create func to showing all possible moves for a knight in a specific position.
 
 export default Board;
