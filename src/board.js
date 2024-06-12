@@ -29,15 +29,14 @@ class Board {
   findKnight(arr) {
     let knight;
     arr.forEach((item) => {
-        for(let i = 0; i < item.length; i ++) {
-            if(item[i] === 'x') {
-                knight = [arr.indexOf(item), i];
-            }
+      for (let i = 0; i < item.length; i++) {
+        if (item[i] === "x") {
+          knight = [arr.indexOf(item), i];
         }
-    })
+      }
+    });
     return knight;
   }
-
 }
 
 // Next: create func to showing all possible moves for a knight in a specific position.
