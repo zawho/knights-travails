@@ -38,41 +38,44 @@ class Board {
     return knight;
   }
 
-  findPosition(x, k, arr) {
+  findPosition(x, k, rowArr, finalArr) {
     if (x === 1) {
-      for (let i = 0; i < arr.length; i++) {
+      for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 2 || i === k[1] + 2) {
-          arr[i] = "o";
+          rowArr[i] = "o";
+          finalArr.push([this.board.indexOf(rowArr), i]);
         }
       }
     }
     if (x === 2) {
-      for (let i = 0; i < arr.length; i++) {
+      for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 1 || i === k[1] + 1) {
-          arr[i] = "o";
+          rowArr[i] = "o";
+          finalArr.push([this.board.indexOf(rowArr), i]);
         }
       }
     }
   }
 
   allMoves(knight) {
+    const arr = [];
     this.board.forEach((item) => {
       if (
         this.board.indexOf(item) === knight[0] - 1 ||
         this.board.indexOf(item) === knight[0] + 1
       ) {
-        this.findPosition(1, knight, item);
+        this.findPosition(1, knight, item, arr);
       }
       if (
         this.board.indexOf(item) === knight[0] - 2 ||
         this.board.indexOf(item) === knight[0] + 2
       ) {
-        this.findPosition(2, knight, item);
+        this.findPosition(2, knight, item, arr);
       }
     });
+    console.log(arr);
+    return arr;
   }
 }
-
-// Next: Condense allMoves() as much as possible and make sure it doesn't go off board.
 
 export default Board;
