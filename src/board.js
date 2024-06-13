@@ -42,40 +42,28 @@ class Board {
     this.board.forEach((item) => {
       if (this.board.indexOf(item) === (knight[0] - 1)) {
         for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] - 2)) {
-            item[i] = 'o';
-          }
-          if (i === (knight[1] + 2)) {
+          if (i === (knight[1] - 2) || i === (knight[1] + 2)) {
             item[i] = 'o';
           }
         }
       }
       if (this.board.indexOf(item) === (knight[0] - 2)) {
         for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] - 1)) {
-            item[i] = 'o';
-          }
-          if (i === (knight[1] + 1)) {
+          if (i === (knight[1] - 1) || i === (knight[1] + 1)) {
             item[i] = 'o';
           }
         }
       }
       if (this.board.indexOf(item) === (knight[0] + 1)) {
         for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 2)) {
-            item[i] = 'o';
-          }
-          if (i === (knight[1] - 2)) {
+          if (i === (knight[1] + 2) || i === (knight[1] - 2)) {
             item[i] = 'o';
           }
         }
       }
       if (this.board.indexOf(item) === (knight[0] + 2)) {
         for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 1)) {
-            item[i] = 'o';
-          }
-          if (i === (knight[1] - 1)) {
+          if (i === (knight[1] + 1) || i === (knight[1] - 1)) {
             item[i] = 'o';
           }
         }
