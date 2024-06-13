@@ -38,42 +38,41 @@ class Board {
     return knight;
   }
 
+  findPosition(x, k, arr) {
+    if (x === 1) {
+      for (let i = 0; i < arr.length; i++) {
+        if (i === k[1] - 2 || i === k[1] + 2) {
+          arr[i] = "o";
+        }
+      }
+    }
+    if (x === 2) {
+      for (let i = 0; i < arr.length; i++) {
+        if (i === k[1] - 1 || i === k[1] + 1) {
+          arr[i] = "o";
+        }
+      }
+    }
+  }
+
   allMoves(knight) {
     this.board.forEach((item) => {
-      if (this.board.indexOf(item) === (knight[0] - 1)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] - 2) || i === (knight[1] + 2)) {
-            item[i] = 'o';
-          }
-        }
+      if (
+        this.board.indexOf(item) === knight[0] - 1 ||
+        this.board.indexOf(item) === knight[0] + 1
+      ) {
+        this.findPosition(1, knight, item);
       }
-      if (this.board.indexOf(item) === (knight[0] - 2)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] - 1) || i === (knight[1] + 1)) {
-            item[i] = 'o';
-          }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] + 1)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 2) || i === (knight[1] - 2)) {
-            item[i] = 'o';
-          }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] + 2)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 1) || i === (knight[1] - 1)) {
-            item[i] = 'o';
-          }
-        }
+      if (
+        this.board.indexOf(item) === knight[0] - 2 ||
+        this.board.indexOf(item) === knight[0] + 2
+      ) {
+        this.findPosition(2, knight, item);
       }
     });
   }
-
 }
 
 // Next: Condense allMoves() as much as possible and make sure it doesn't go off board.
-// First can combine similar if statements to condense.
 
 export default Board;
