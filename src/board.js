@@ -45,6 +45,9 @@ class Board {
           if (i === (knight[1] - 2)) {
             item[i] = 'o';
           }
+          if (i === (knight[1] + 2)) {
+            item[i] = 'o';
+          }
         }
       }
       if (this.board.indexOf(item) === (knight[0] - 2)) {
@@ -52,31 +55,6 @@ class Board {
           if (i === (knight[1] - 1)) {
             item[i] = 'o';
           }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] + 1)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 2)) {
-            item[i] = 'o';
-          }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] + 2)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 1)) {
-            item[i] = 'o';
-          }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] - 1)) {
-        for (let i = 0; i < item.length; i++) {
-          if (i === (knight[1] + 2)) {
-            item[i] = 'o';
-          }
-        }
-      }
-      if (this.board.indexOf(item) === (knight[0] - 2)) {
-        for (let i = 0; i < item.length; i++) {
           if (i === (knight[1] + 1)) {
             item[i] = 'o';
           }
@@ -84,6 +62,9 @@ class Board {
       }
       if (this.board.indexOf(item) === (knight[0] + 1)) {
         for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 2)) {
+            item[i] = 'o';
+          }
           if (i === (knight[1] - 2)) {
             item[i] = 'o';
           }
@@ -91,6 +72,9 @@ class Board {
       }
       if (this.board.indexOf(item) === (knight[0] + 2)) {
         for (let i = 0; i < item.length; i++) {
+          if (i === (knight[1] + 1)) {
+            item[i] = 'o';
+          }
           if (i === (knight[1] - 1)) {
             item[i] = 'o';
           }
@@ -100,5 +84,8 @@ class Board {
   }
 
 }
+
+// Next: Condense allMoves() as much as possible and make sure it doesn't go off board.
+// First can combine similar if statements to condense.
 
 export default Board;
