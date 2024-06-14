@@ -73,7 +73,6 @@ class Board {
         this.findPosition(2, knight, item, arr);
       }
     });
-    console.log(arr);
     return arr;
   }
 }
