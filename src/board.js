@@ -78,4 +78,6 @@ class Board {
   }
 }
 
+// Next I need to somehow get all of this into a binary search tree... maybe?
+
 export default Board;
