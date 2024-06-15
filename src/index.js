@@ -1,8 +1,6 @@
 import Board from "./board";
-import Tree from "./tree";
-import printTree from "./print.js";
-import mergeSort from "./merge-sort.js";
-
+import createList from "./moves-list";
+import listMoves from "./moves-list";
 
 // Create board.
 const testBoard = new Board();
@@ -19,11 +17,4 @@ console.log(testBoard.allMoves(knightLoc));
 //Print chess board.
 console.table(testBoard.board);
 
-// Store moves array.
-const testArr = testBoard.allMoves(knightLoc);
-
-// Create binary search tree from moves array.
-const testTree = new Tree(testBoard.allMoves(knightLoc));
-
-// Print tree.
-printTree(testTree.root);
+createList(testBoard.board);
