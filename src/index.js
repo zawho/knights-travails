@@ -1,6 +1,5 @@
 import Board from "./board";
-import createList from "./moves-list";
-import listMoves from "./moves-list";
+import allMoves from "./moves-list";
 
 // Create board.
 const testBoard = new Board();
@@ -12,9 +11,9 @@ const startKnight = testBoard.placeKnight([3, 3]);
 const knightLoc = testBoard.findKnight(testBoard.board);
 
 // Return and print array of all possible moves.
-console.log(testBoard.allMoves(knightLoc));
+console.log(testBoard.findMoves(knightLoc));
 
 //Print chess board.
 console.table(testBoard.board);
 
-createList(testBoard.board);
+allMoves(testBoard.board);

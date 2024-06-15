@@ -57,7 +57,7 @@ class Board {
     }
   }
 
-  allMoves(knight) {
+  findMoves(knight) {
     const arr = [];
     this.board.forEach((item) => {
       if (

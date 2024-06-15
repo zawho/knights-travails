@@ -1,3 +1,5 @@
+import Board from "./board";
+
 function createList(board) {
     const movesList = [];
 
@@ -7,7 +9,19 @@ function createList(board) {
       }
     });
 
-    console.log(movesList);
+    return movesList;
   }
 
-  export default createList;
+  function allMoves() {
+    const testBoard = new Board();
+    const movesList = createList(testBoard.board);
+
+    for (let i = 0; i < testBoard.board[0].length; i++) {
+    movesList[testBoard.board[0][i]].push(testBoard.findMoves([0, i]));
+    }
+
+    console.log(movesList[0]);
+
+  }
+
+  export default allMoves;
