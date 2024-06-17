@@ -82,36 +82,34 @@ class Board {
     if (x === 1) {
       for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 2 || i === k[1] + 2) {
-          finalArr.push([this.board.indexOf(rowArr), i]);
+          finalArr.push(rowArr[i]);
         }
       }
     }
     if (x === 2) {
       for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 1 || i === k[1] + 1) {
-          finalArr.push([this.board.indexOf(rowArr), i]);
+          finalArr.push(rowArr[i]);
         }
       }
     }
   }
 
-  findMoves(knight) {
-    const arr = [];
+  findMoves(knight, finalArr) {
     this.board.forEach((item) => {
       if (
         this.board.indexOf(item) === knight[0] - 1 ||
         this.board.indexOf(item) === knight[0] + 1
       ) {
-        this.findPosition(1, knight, item, arr);
+        this.findPosition(1, knight, item, finalArr);
       }
       if (
         this.board.indexOf(item) === knight[0] - 2 ||
         this.board.indexOf(item) === knight[0] + 2
       ) {
-        this.findPosition(2, knight, item, arr);
+        this.findPosition(2, knight, item, finalArr);
       }
     });
-    return arr;
   }
 }
 

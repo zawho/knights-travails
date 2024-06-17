@@ -25,8 +25,9 @@ function createList(board) {
     })
 
     testBoard.board.forEach((arr) => {
+      const rowIndex = testBoard.board.indexOf(arr);
       for (let i = 0; i < arr.length; i++) {
-        movesList[arr[i]].push(testBoard.findMoves([testBoard.board.indexOf(arr), i]));
+        testBoard.findMoves([rowIndex, i], movesList[arr[i]]);
       }
     })
 
