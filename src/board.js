@@ -38,7 +38,7 @@ class Board {
     return knight;
   }
 
-  findPosition(x, k, rowArr, finalArr) {
+  displayPosition(x, k, rowArr, finalArr) {
     if (x === 1) {
       for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 2 || i === k[1] + 2) {
@@ -51,6 +51,44 @@ class Board {
       for (let i = 0; i < rowArr.length; i++) {
         if (i === k[1] - 1 || i === k[1] + 1) {
           rowArr[i] = "o";
+          finalArr.push([this.board.indexOf(rowArr), i]);
+        }
+      }
+    }
+  }
+
+  displayMoves(knight) {
+    const arr = [];
+    this.board.forEach((item) => {
+      if (
+        this.board.indexOf(item) === knight[0] - 1 ||
+        this.board.indexOf(item) === knight[0] + 1
+      ) {
+        this.displayPosition(1, knight, item, arr);
+      }
+      if (
+        this.board.indexOf(item) === knight[0] - 2 ||
+        this.board.indexOf(item) === knight[0] + 2
+      ) {
+        this.displayPosition(2, knight, item, arr);
+      }
+    });
+    return arr;
+  }
+
+  // temp functions for use with move list. will condense display and find funcs later.
+
+  findPosition(x, k, rowArr, finalArr) {
+    if (x === 1) {
+      for (let i = 0; i < rowArr.length; i++) {
+        if (i === k[1] - 2 || i === k[1] + 2) {
+          finalArr.push([this.board.indexOf(rowArr), i]);
+        }
+      }
+    }
+    if (x === 2) {
+      for (let i = 0; i < rowArr.length; i++) {
+        if (i === k[1] - 1 || i === k[1] + 1) {
           finalArr.push([this.board.indexOf(rowArr), i]);
         }
       }

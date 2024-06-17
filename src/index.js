@@ -11,9 +11,9 @@ const startKnight = testBoard.placeKnight([3, 3]);
 const knightLoc = testBoard.findKnight(testBoard.board);
 
 // Return and print array of all possible moves.
-console.log(testBoard.findMoves(knightLoc));
+console.log(testBoard.displayMoves(knightLoc));
 
 //Print chess board.
 console.table(testBoard.board);
 
-allMoves(testBoard.board);
+allMoves();

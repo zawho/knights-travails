@@ -15,13 +15,23 @@ function createList(board) {
   function allMoves() {
     const testBoard = new Board();
     const movesList = createList(testBoard.board);
+    let testVar = -1;
 
-    for (let i = 0; i < testBoard.board[0].length; i++) {
-    movesList[testBoard.board[0][i]].push(testBoard.findMoves([0, i]));
-    }
+    testBoard.board.forEach((arr) => {
+      for (let i = 0; i < arr.length; i++) {
+        testVar += 1;
+        arr[i] = testVar;
+      }
+    })
 
-    console.log(movesList[0]);
+    testBoard.board.forEach((arr) => {
+      for (let i = 0; i < arr.length; i++) {
+        movesList[arr[i]].push(testBoard.findMoves([testBoard.board.indexOf(arr), i]));
+      }
+    })
 
+    console.table(testBoard.board);
+    console.log(movesList);
   }
 
   export default allMoves;
