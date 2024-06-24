@@ -1,5 +1,5 @@
 import Board from "./board";
-import { allMoves, KnightMoves } from "./moves-list";
+import { allMoves } from "./graph";
 
 // Create board.
 const testBoard = new Board();
@@ -18,7 +18,7 @@ const knightLoc = testBoard.findKnight(testBoard.board);
 
 // allMoves();
 
-KnightMoves([3, 3], [4, 3]);
+// knightMoves([3, 3], [4, 3]);
 
 // clean up needed
 // re org needed

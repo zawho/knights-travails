@@ -20,13 +20,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/graph.js":
+/*!**********************!*\
+  !*** ./src/graph.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   allMoves: () => (/* binding */ allMoves)\n/* harmony export */ });\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.js\");\n\n\nfunction createList(board) {\n\tconst movesList = [];\n\n\tboard.forEach((item) => {\n\t\tfor (let i = 0; i < item.length; i++) {\n\t\t\tmovesList.push([]);\n\t\t}\n\t});\n\n\treturn movesList;\n}\n\nfunction fillBoard(boardVar) {\n\tlet count = -1;\n\tboardVar.forEach((arr) => {\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tcount += 1;\n\t\t\tarr[i] = count;\n\t\t}\n\t});\n}\n\nfunction allMoves() {\n\tconst testBoard = new _board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\tconst movesList = createList(testBoard.board);\n\n\tfillBoard(testBoard.board);\n\n\ttestBoard.board.forEach((arr) => {\n\t\tconst rowIndex = testBoard.board.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\ttestBoard.findMoves([rowIndex, i], movesList[arr[i]]);\n\t\t}\n\t});\n\treturn movesList;\n}\n\nfunction getValue(coords, boardVar) {\n\tlet coordsVal;\n\tboardVar.forEach((arr) => {\n\t\tconst rowIndex = boardVar.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tif (rowIndex === coords[0] && i === coords[1]) {\n\t\t\t\tcoordsVal = arr[i];\n\t\t\t}\n\t\t}\n\t});\n\treturn coordsVal;\n}\n\nfunction getIndex(value, boardVar) {\n\tlet valIndex;\n\tboardVar.forEach((arr) => {\n\t\tconst rowIndex = boardVar.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tif (arr[i] === value) {\n\t\t\t\tvalIndex = [rowIndex, i];\n\t\t\t}\n\t\t}\n\t});\n\treturn valIndex;\n}\n\n/* function knightMoves(start, end) {\n\t\n} */\n\n\n\n\n//# sourceURL=webpack://knights-travails/./src/graph.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.js\");\n/* harmony import */ var _moves_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moves-list */ \"./src/moves-list.js\");\n\n\n\n// Create board.\nconst testBoard = new _board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n// Place knight\nconst startKnight = testBoard.placeKnight([3, 3]);\n\n// Get Knight location array.\nconst knightLoc = testBoard.findKnight(testBoard.board);\n\n// Return and print array of all possible moves.\n// console.log(testBoard.displayMoves(knightLoc));\n\n//Print chess board.\n// console.table(testBoard.board);\n\n// allMoves();\n\n(0,_moves_list__WEBPACK_IMPORTED_MODULE_1__.KnightMoves)([3, 3], [4, 3]);\n\n// clean up needed\n// re org needed\n\n\n//# sourceURL=webpack://knights-travails/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.js\");\n/* harmony import */ var _graph__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./graph */ \"./src/graph.js\");\n\n\n\n// Create board.\nconst testBoard = new _board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n// Place knight\nconst startKnight = testBoard.placeKnight([3, 3]);\n\n// Get Knight location array.\nconst knightLoc = testBoard.findKnight(testBoard.board);\n\n// Return and print array of all possible moves.\n// console.log(testBoard.displayMoves(knightLoc));\n\n//Print chess board.\n// console.table(testBoard.board);\n\n// allMoves();\n\n// knightMoves([3, 3], [4, 3]);\n\n// clean up needed\n// re org needed\n\n\n//# sourceURL=webpack://knights-travails/./src/index.js?");
 
 /***/ }),
 
@@ -37,16 +47,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _boa
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Knight {\n\tconstructor(board, [x, y]) {\n\t\tif (x < 0 || x > 7 || y < 0 || y > 7) {\n\t\t\treturn;\n\t\t}\n\t\tboard[x][y] = \"x\";\n\t}\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Knight);\n\n\n//# sourceURL=webpack://knights-travails/./src/knight.js?");
-
-/***/ }),
-
-/***/ "./src/moves-list.js":
-/*!***************************!*\
-  !*** ./src/moves-list.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   allMoves: () => (/* binding */ allMoves)\n/* harmony export */ });\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.js\");\n\n\nfunction createList(board) {\n\tconst movesList = [];\n\n\tboard.forEach((item) => {\n\t\tfor (let i = 0; i < item.length; i++) {\n\t\t\tmovesList.push([]);\n\t\t}\n\t});\n\n\treturn movesList;\n}\n\nfunction fillBoard(boardVar) {\n\tlet count = -1;\n\tboardVar.forEach((arr) => {\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tcount += 1;\n\t\t\tarr[i] = count;\n\t\t}\n\t});\n}\n\nfunction allMoves() {\n\tconst testBoard = new _board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\tconst movesList = createList(testBoard.board);\n\n\tfillBoard(testBoard.board);\n\n\ttestBoard.board.forEach((arr) => {\n\t\tconst rowIndex = testBoard.board.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\ttestBoard.findMoves([rowIndex, i], movesList[arr[i]]);\n\t\t}\n\t});\n\n\treturn movesList;\n}\n\nfunction getValue(coords, boardVar) {\n\tlet coordsVal;\n\tboardVar.forEach((arr) => {\n\t\tconst rowIndex = boardVar.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tif (rowIndex === coords[0] && i === coords[1]) {\n\t\t\t\tcoordsVal = arr[i];\n\t\t\t}\n\t\t}\n\t});\n\treturn coordsVal;\n}\n\nfunction getIndex(value, boardVar) {\n\tlet valIndex;\n\tboardVar.forEach((arr) => {\n\t\tconst rowIndex = boardVar.indexOf(arr);\n\t\tfor (let i = 0; i < arr.length; i++) {\n\t\t\tif (arr[i] === value) {\n\t\t\t\tvalIndex = [rowIndex, i];\n\t\t\t}\n\t\t}\n\t});\n\treturn valIndex;\n}\n\n/* function KnightMoves(start, end) {\n\t\n} */\n\n\n\n\n//# sourceURL=webpack://knights-travails/./src/moves-list.js?");
 
 /***/ })
 

@@ -34,7 +34,6 @@ function allMoves() {
 			testBoard.findMoves([rowIndex, i], movesList[arr[i]]);
 		}
 	});
-
 	return movesList;
 }
 
@@ -64,7 +63,7 @@ function getIndex(value, boardVar) {
 	return valIndex;
 }
 
-/* function KnightMoves(start, end) {
+/* function knightMoves(start, end) {
 	
 } */
 
