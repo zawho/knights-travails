@@ -64,32 +64,8 @@ function getIndex(value, boardVar) {
 	return valIndex;
 }
 
-function KnightMoves(start, end, arr) {
-	arr = [];
+/* function KnightMoves(start, end) {
+	
+} */
 
-	const chessBoard = new Board();
-	fillBoard(chessBoard.board);
-
-	const movesList = allMoves();
-
-	const startVal = getValue(start, chessBoard.board);
-	const endVal = getValue(end, chessBoard.board);
-
-	if (startVal === endVal) {
-		return;
-	}
-
-	for (let i = 0; i < movesList[startVal].length; i++) {
-		const newStart = movesList[startVal][i];
-		const newStartIndex = getIndex(movesList[startVal][i], chessBoard.board);
-
-		arr.push(newStart);
-		// KnightMoves(newStartIndex, end);
-	}
-
-	console.log(arr);
-}
-
-// Next: look into DFS implementation
-
-export { allMoves, KnightMoves };
+export { allMoves };
