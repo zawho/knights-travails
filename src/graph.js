@@ -1,70 +1,77 @@
 import Board from "./board";
 
-function createList(board) {
-	const movesList = [];
+class Graph {
+	constructor() {
+		const newBoard = new Board();
+		this.graph = this.allMoves(newBoard);
+	}
 
-	board.forEach((item) => {
-		for (let i = 0; i < item.length; i++) {
-			movesList.push([]);
-		}
-	});
-
-	return movesList;
-}
-
-function fillBoard(boardVar) {
-	let count = -1;
-	boardVar.forEach((arr) => {
-		for (let i = 0; i < arr.length; i++) {
-			count += 1;
-			arr[i] = count;
-		}
-	});
-}
-
-function allMoves() {
-	const testBoard = new Board();
-	const movesList = createList(testBoard.board);
-
-	fillBoard(testBoard.board);
-
-	testBoard.board.forEach((arr) => {
-		const rowIndex = testBoard.board.indexOf(arr);
-		for (let i = 0; i < arr.length; i++) {
-			testBoard.findMoves([rowIndex, i], movesList[arr[i]]);
-		}
-	});
-	return movesList;
-}
-
-function getValue(coords, boardVar) {
-	let coordsVal;
-	boardVar.forEach((arr) => {
-		const rowIndex = boardVar.indexOf(arr);
-		for (let i = 0; i < arr.length; i++) {
-			if (rowIndex === coords[0] && i === coords[1]) {
-				coordsVal = arr[i];
+	createList(boardVar) {
+		const movesList = [];
+	
+		boardVar.board.forEach((item) => {
+			for (let i = 0; i < item.length; i++) {
+				movesList.push([]);
 			}
-		}
-	});
-	return coordsVal;
-}
+		});
+	
+		return movesList;
+	}
 
-function getIndex(value, boardVar) {
-	let valIndex;
-	boardVar.forEach((arr) => {
-		const rowIndex = boardVar.indexOf(arr);
-		for (let i = 0; i < arr.length; i++) {
-			if (arr[i] === value) {
-				valIndex = [rowIndex, i];
+	fillBoard(boardVar) {
+		let count = -1;
+		boardVar.board.forEach((arr) => {
+			for (let i = 0; i < arr.length; i++) {
+				count += 1;
+				arr[i] = count;
 			}
-		}
-	});
-	return valIndex;
-}
+		});
+	}
+	
+	allMoves(boardVar) {
+		const movesList = this.createList(boardVar);
+		this. fillBoard(boardVar);
+	
+		boardVar.board.forEach((arr) => {
+			const rowIndex = boardVar.board.indexOf(arr);
+			for (let i = 0; i < arr.length; i++) {
+				boardVar.findMoves([rowIndex, i], movesList[arr[i]]);
+			}
+		});
+		return movesList;
+	}
 
-/* function knightMoves(start, end) {
+	// getValue and getIndex need to be reworked, and determined if necessary
+
+	/* getValue(coords, boardVar) {
+		let coordsVal;
+		boardVar.forEach((arr) => {
+			const rowIndex = boardVar.indexOf(arr);
+			for (let i = 0; i < arr.length; i++) {
+				if (rowIndex === coords[0] && i === coords[1]) {
+					coordsVal = arr[i];
+				}
+			}
+		});
+		return coordsVal;
+	}
+	
+	getIndex(value, boardVar) {
+		let valIndex;
+		boardVar.forEach((arr) => {
+			const rowIndex = boardVar.indexOf(arr);
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] === value) {
+					valIndex = [rowIndex, i];
+				}
+			}
+		});
+		return valIndex;
+	} /*
+
+	/* knightMoves(start, end) {
 	
 } */
+}
 
-export { allMoves };
+export default Graph;
