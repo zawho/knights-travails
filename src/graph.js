@@ -40,22 +40,22 @@ class Graph {
 		return movesList;
 	}
 
-	// getValue and getIndex need to be reworked, and determined if necessary
-
-	/* getValue(coords, boardVar) {
+	getValue(coords, boardVar) {
+		this.fillBoard(boardVar);
 		let coordsVal;
-		boardVar.forEach((arr) => {
-			const rowIndex = boardVar.indexOf(arr);
+		boardVar.board.forEach((arr) => {
+			const rowIndex = boardVar.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
 				if (rowIndex === coords[0] && i === coords[1]) {
 					coordsVal = arr[i];
 				}
 			}
 		});
+		console.log(coordsVal); // remove this later
 		return coordsVal;
 	}
 	
-	getIndex(value, boardVar) {
+	/* getIndex(value, boardVar) {
 		let valIndex;
 		boardVar.forEach((arr) => {
 			const rowIndex = boardVar.indexOf(arr);
@@ -66,11 +66,12 @@ class Graph {
 			}
 		});
 		return valIndex;
-	} /*
+	} */
 
 	/* knightMoves(start, end) {
 	
 } */
+
 }
 
 export default Graph;
