@@ -41,7 +41,7 @@ class Graph {
 	}
 
 	getValue(coords, boardVar) {
-		this.fillBoard(boardVar);
+		// this.fillBoard(boardVar); - add this if board is unfilled
 		let coordsVal;
 		boardVar.board.forEach((arr) => {
 			const rowIndex = boardVar.board.indexOf(arr);
@@ -55,18 +55,22 @@ class Graph {
 		return coordsVal;
 	}
 	
-	/* getIndex(value, boardVar) {
+	getIndex(value, boardVar) {
+		// this.fillBoard(boardVar); - add this if board is unfilled
 		let valIndex;
-		boardVar.forEach((arr) => {
-			const rowIndex = boardVar.indexOf(arr);
+		boardVar.board.forEach((arr) => {
+			const rowIndex = boardVar.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
 				if (arr[i] === value) {
 					valIndex = [rowIndex, i];
 				}
 			}
 		});
+		console.log(valIndex); // remove this later
 		return valIndex;
-	} */
+	}
+
+	// Next: back to figuring out knightMoves
 
 	/* knightMoves(start, end) {
 	

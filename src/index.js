@@ -26,4 +26,7 @@ console.table(testBoard.board);
 // Get coord value.
 testGraph.getValue([3, 3], testBoard);
 
+// Get value coords.
+testGraph.getIndex(27, testBoard);
+
 // knightMoves([3, 3], [4, 3]);
