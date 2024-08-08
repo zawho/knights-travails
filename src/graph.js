@@ -30,7 +30,7 @@ class Graph {
 	
 	allMoves(boardVar) {
 		const movesList = this.createList(boardVar);
-		this. fillBoard(boardVar);
+		this.fillBoard(boardVar);
 	
 		boardVar.board.forEach((arr) => {
 			const rowIndex = boardVar.board.indexOf(arr);
