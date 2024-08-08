@@ -1,14 +1,14 @@
-import Board from "./board";
+// import Board from "./board";
 import Graph from "./graph";
 
 // Create board.
-const testBoard = new Board();
+// const testBoard = new Board();
 
 // Place knight
-const startKnight = testBoard.placeKnight([3, 3]);
+// const startKnight = testBoard.placeKnight([3, 3]);
 
 // Get Knight location array.
-const knightLoc = testBoard.findKnight(testBoard.board);
+// const knightLoc = testBoard.findKnight(testBoard.board);
 
 // Return and print array of all possible moves.
 // console.log(testBoard.displayMoves(knightLoc));
@@ -21,6 +21,3 @@ const knightLoc = testBoard.findKnight(testBoard.board);
 const testGraph = new Graph();
 
 console.log(testGraph);
-
-// clean up needed
-// re org needed

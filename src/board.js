@@ -21,6 +21,8 @@ class Board {
 		return board;
 	}
 
+	// All funcs from placeKnight to displayMoves can prob be removed later
+
 	placeKnight([a, b]) {
 		const newKnight = new Knight(this.board, [a, b]);
 		return newKnight;
@@ -75,8 +77,6 @@ class Board {
 		});
 		return arr;
 	}
-
-	// temp functions for use with move list. will condense display and find funcs later.
 
 	findPosition(x, k, rowArr, finalArr) {
 		if (x === 1) {

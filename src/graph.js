@@ -14,7 +14,6 @@ class Graph {
 				movesList.push([]);
 			}
 		});
-	
 		return movesList;
 	}
 
