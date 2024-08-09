@@ -15,7 +15,7 @@ const testBoard = new Board();
 
 // Create and print moves graph.
 const testGraph = new Graph();
-console.log(testGraph);
+console.log(testGraph.graph);
 
 // Fill board with numbers.
 testGraph.fillBoard(testBoard);
@@ -24,9 +24,9 @@ testGraph.fillBoard(testBoard);
 console.table(testBoard.board);
 
 // Get coord value.
-testGraph.getValue([3, 3], testBoard);
+// testGraph.getValue([3, 3], testBoard);
 
 // Get value coords.
-testGraph.getIndex(27, testBoard);
+// testGraph.getIndex(27, testBoard);
 
-// knightMoves([3, 3], [4, 3]);
+testGraph.knightMoves([3, 3], [4, 3], testBoard, testGraph);
