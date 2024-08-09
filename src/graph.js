@@ -72,6 +72,8 @@ class Graph {
 
 	knightMoves(start, end, boardVar, graphVar) {
 		const startVal = this.getValue(start, boardVar);
+		const endVal = this.getValue(end, boardVar);
+		console.log(endVal);
 		for (let i = 0; i < graphVar.graph[startVal].length; i++) {
 			const itemArr = graphVar.graph[startVal][i];
 			console.log(graphVar.graph[itemArr]);
