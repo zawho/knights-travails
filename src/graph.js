@@ -70,7 +70,7 @@ class Graph {
 		return valIndex;
 	}
 
-	knightMoves(start, end, boardVar, graphVar) {
+	knightTest(start, end, boardVar, graphVar) {
 		const startVal = this.getValue(start, boardVar);
 		const endVal = this.getValue(end, boardVar);
 		console.log(endVal);
@@ -80,6 +80,28 @@ class Graph {
 		}
 	}
 
+	knightMoves(start, end, boardVar, graphVar) {
+		const startVal = this.getValue(start, boardVar);
+		const endVal = this.getValue(end, boardVar);
+
+		const queue = [startVal];
+		const results = [];
+		let current;
+		
+		while (queue.length) {
+			current = queue.shift();
+			results.push(current);
+
+			if (current === endVal) {
+				console.log(results);
+				return;
+			}
+
+			for (let i = 0; i < graphVar.graph[current].length; i++) {
+				queue.push(graphVar.graph[current][i]);
+			}
+		}
+	}
 }
 
 export default Graph;
