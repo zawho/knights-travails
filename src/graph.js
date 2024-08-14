@@ -84,23 +84,28 @@ class Graph {
 		const startVal = this.getValue(start, boardVar);
 		const endVal = this.getValue(end, boardVar);
 
-		const queue = [startVal];
-		const results = [];
-		let current;
-		
-		while (queue.length) {
-			current = queue.shift();
-			results.push(current);
+		let paths = [];
+		let queue = [];
+		queue.push([startVal, [startVal]]);
+		const visited = new Set();
+
+		while (queue.length > 0) {
+			let [current, path] = queue.shift();
+			visited.add(current);
 
 			if (current === endVal) {
-				console.log(results);
-				return;
+				paths.push(path);
 			}
 
 			for (let i = 0; i < graphVar.graph[current].length; i++) {
-				queue.push(graphVar.graph[current][i]);
+				const next = graphVar.graph[current][i];
+				if (!visited.has(next)) {
+					queue.push([next, [...path, next]]);
+				}
 			}
 		}
+		console.log(paths);
+		return paths;
 	}
 }
 
