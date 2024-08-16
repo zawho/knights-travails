@@ -8,7 +8,7 @@ class Graph {
 
 	createList(boardVar) {
 		const movesList = [];
-	
+
 		boardVar.board.forEach((item) => {
 			for (let i = 0; i < item.length; i++) {
 				movesList.push([]);
@@ -26,11 +26,11 @@ class Graph {
 			}
 		});
 	}
-	
+
 	allMoves(boardVar) {
 		const movesList = this.createList(boardVar);
 		this.fillBoard(boardVar);
-	
+
 		boardVar.board.forEach((arr) => {
 			const rowIndex = boardVar.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
@@ -54,7 +54,7 @@ class Graph {
 		// console.log(coordsVal); // - remove this later
 		return coordsVal;
 	}
-	
+
 	getIndex(value, boardVar) {
 		// this.fillBoard(boardVar); // - add this if board is unfilled
 		let valIndex;
@@ -77,6 +77,17 @@ class Graph {
 		for (let i = 0; i < graphVar.graph[startVal].length; i++) {
 			const itemArr = graphVar.graph[startVal][i];
 			console.log(graphVar.graph[itemArr]);
+		}
+	}
+
+	displayMsg(arr, boardVar) {
+		const randPath = Math.floor(Math.random() * arr.length);
+		
+		console.log 
+		(`The shortest path is ${arr[randPath].length - 1} moves. There are ${arr.length} possible shortest paths. Below is one such path:`);
+
+		for (let i = 0; i < arr[randPath].length; i++) {
+			console.log(`[${this.getIndex(arr[randPath][i], boardVar)}]`);
 		}
 	}
 
@@ -104,7 +115,7 @@ class Graph {
 				}
 			}
 		}
-		console.log(paths);
+		this.displayMsg(paths, boardVar);
 		return paths;
 	}
 }
