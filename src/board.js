@@ -2,17 +2,19 @@ class Board {
 	constructor() {
 		this.board = this.createBoard();
 	}
-
+	
 	createBoard() {
 		const board = [];
+		let count = -1;
 
 		for (let i = 0; i < 8; i++) {
 			board[i] = [];
 		}
-
+		
 		board.forEach((arr) => {
 			for (let i = 0; i < 8; i++) {
-				arr[i] = 0;
+				count += 1;
+				arr[i] = count;
 			}
 		});
 

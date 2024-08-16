@@ -17,19 +17,8 @@ class Graph {
 		return movesList;
 	}
 
-	fillBoard(boardVar) {
-		let count = -1;
-		boardVar.board.forEach((arr) => {
-			for (let i = 0; i < arr.length; i++) {
-				count += 1;
-				arr[i] = count;
-			}
-		});
-	}
-
 	allMoves(boardVar) {
 		const movesList = this.createList(boardVar);
-		this.fillBoard(boardVar);
 
 		boardVar.board.forEach((arr) => {
 			const rowIndex = boardVar.board.indexOf(arr);

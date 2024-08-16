@@ -8,9 +8,6 @@ const testBoard = new Board();
 const testGraph = new Graph();
 console.log(testGraph.graph);
 
-// Fill board with numbers.
-testGraph.fillBoard(testBoard);
-
 // Print board.
 console.table(testBoard.board);
 
