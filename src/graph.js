@@ -31,10 +31,10 @@ class Graph {
 		return movesList;
 	}
 
-	getValue(coords, boardVar) {
+	getValue(coords) {
 		let coordsVal;
-		boardVar.board.forEach((arr) => {
-			const rowIndex = boardVar.board.indexOf(arr);
+		this.board.forEach((arr) => {
+			const rowIndex = this.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
 				if (rowIndex === coords[0] && i === coords[1]) {
 					coordsVal = arr[i];
@@ -44,10 +44,10 @@ class Graph {
 		return coordsVal;
 	}
 
-	getIndex(value, boardVar) {
+	getIndex(value) {
 		let valIndex;
-		boardVar.board.forEach((arr) => {
-			const rowIndex = boardVar.board.indexOf(arr);
+		this.board.forEach((arr) => {
+			const rowIndex = this.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
 				if (arr[i] === value) {
 					valIndex = [rowIndex, i];
@@ -57,14 +57,14 @@ class Graph {
 		return valIndex;
 	}
 
-	displayMsg(arr, boardVar) {
+	displayMsg(arr) {
 		const randPath = Math.floor(Math.random() * arr.length);
 		
 		console.log 
 		(`The shortest path is ${arr[randPath].length - 1} moves. There are ${arr.length} possible shortest paths. Below is one such path:`);
 
 		for (let i = 0; i < arr[randPath].length; i++) {
-			console.log(`[${this.getIndex(arr[randPath][i], boardVar)}]`);
+			console.log(`[${this.getIndex(arr[randPath][i])}]`);
 		}
 	}
 
