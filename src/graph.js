@@ -20,7 +20,7 @@ class Graph {
 	}
 
 	allMoves() {
-		const movesList = this.createList(this.boardClass);
+		const movesList = this.createList();
 
 		this.board.forEach((arr) => {
 			const rowIndex = this.board.indexOf(arr);
@@ -57,11 +57,30 @@ class Graph {
 		return valIndex;
 	}
 
+	errorMsg(start, end) {
+		if ((start[0] > 7 || start[0] < 0) || (start[1] > 7 || start[1] < 0)) {
+			console.log('Start coordinates must be less than 8 and greater than -1.');
+			return true;
+		} else if ((end[0] > 7 || end[0] < 0) || (end[1] > 7 || end[1] < 0)) {
+			console.log('End coordinates must be less than 8 and greater than -1.');
+			return true;
+		} else if (start[0] === end[0] && start[1] === end[1]) {
+			console.log('Please enter different start and end coordinates.');
+			return true;
+		}
+		return false;
+	}
+
 	displayMsg(arr) {
 		const randPath = Math.floor(Math.random() * arr.length);
+
+		if (arr.length === 1) {
+			console.log(`The shortest path is a single move:`);
+		} else {
+			console.log 
+			(`The shortest path is ${arr[randPath].length - 1} moves. There are ${arr.length} possible shortest paths. Below is one such path:`);
+		}
 		
-		console.log 
-		(`The shortest path is ${arr[randPath].length - 1} moves. There are ${arr.length} possible shortest paths. Below is one such path:`);
 
 		for (let i = 0; i < arr[randPath].length; i++) {
 			console.log(`[${this.getIndex(arr[randPath][i])}]`);
@@ -69,6 +88,11 @@ class Graph {
 	}
 
 	knightMoves(start, end) {
+
+		if (this.errorMsg(start, end)) {
+			return;
+		}
+
 		const startVal = this.getValue(start);
 		const endVal = this.getValue(end);
 
