@@ -3,6 +3,7 @@ import Board from "./board";
 class Graph {
 	constructor() {
 		const newBoard = new Board();
+		this.board = newBoard.board;
 		this.graph = this.allMoves(newBoard);
 	}
 
