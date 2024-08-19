@@ -68,9 +68,9 @@ class Graph {
 		}
 	}
 
-	knightMoves(start, end, boardVar, graphVar) {
-		const startVal = this.getValue(start, boardVar);
-		const endVal = this.getValue(end, boardVar);
+	knightMoves(start, end) {
+		const startVal = this.getValue(start);
+		const endVal = this.getValue(end);
 
 		let paths = [];
 		let queue = [];
@@ -85,14 +85,14 @@ class Graph {
 				paths.push(path);
 			}
 
-			for (let i = 0; i < graphVar.graph[current].length; i++) {
-				const next = graphVar.graph[current][i];
+			for (let i = 0; i < this.graph[current].length; i++) {
+				const next = this.graph[current][i];
 				if (!visited.has(next)) {
 					queue.push([next, [...path, next]]);
 				}
 			}
 		}
-		this.displayMsg(paths, boardVar);
+		this.displayMsg(paths);
 		return paths;
 	}
 }
