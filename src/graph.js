@@ -3,14 +3,15 @@ import Board from "./board";
 class Graph {
 	constructor() {
 		const newBoard = new Board();
+		this.boardClass = newBoard;
 		this.board = newBoard.board;
 		this.graph = this.allMoves(newBoard);
 	}
 
-	createList(boardVar) {
+	createList() {
 		const movesList = [];
 
-		boardVar.board.forEach((item) => {
+		this.board.forEach((item) => {
 			for (let i = 0; i < item.length; i++) {
 				movesList.push([]);
 			}
@@ -18,13 +19,13 @@ class Graph {
 		return movesList;
 	}
 
-	allMoves(boardVar) {
-		const movesList = this.createList(boardVar);
+	allMoves() {
+		const movesList = this.createList(this.boardClass);
 
-		boardVar.board.forEach((arr) => {
-			const rowIndex = boardVar.board.indexOf(arr);
+		this.board.forEach((arr) => {
+			const rowIndex = this.board.indexOf(arr);
 			for (let i = 0; i < arr.length; i++) {
-				boardVar.findMoves([rowIndex, i], movesList[arr[i]]);
+				this.boardClass.findMoves([rowIndex, i], movesList[arr[i]]);
 			}
 		});
 		return movesList;
